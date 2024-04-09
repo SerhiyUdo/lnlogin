@@ -22,7 +22,7 @@ public class AccountPage extends WebPage {
     @XPath("//a[contains(@href,'logout')]")
     private Button logOutButton;
 
-    @XPath("//*[@role = 'dialog']//*[contains(@class, 'artdeco-button__text')])[3]")
+    @XPath("//*[@role = 'dialog']//*[contains(@class, 'artdeco-button--secondary')]")
     private Button confirmLogOutButton;
 
     public void verifyUserLoggedIn() {

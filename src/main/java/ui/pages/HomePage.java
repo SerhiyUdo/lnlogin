@@ -11,7 +11,7 @@ import static utils.PageWaiters.waitForJStoLoad;
 @Url("")
 public class HomePage extends WebPage {
 
-    @Css(".nav-logo")
+    @Css(".nav__logo-link")
     private UIElement logo;
 
     @Css(".nav__button-secondary")
