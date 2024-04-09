@@ -3,18 +3,29 @@ package ui.pages;
 import com.epam.jdi.light.elements.common.UIElement;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
-import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.ui.html.elements.common.Button;
+
+import static utils.PageWaiters.waitForJStoLoad;
 
 @Url("")
 public class HomePage extends WebPage {
-    @XPath("//ul[@role='menu']//a[contains(@href, '/gear.html')]")
-    private UIElement gearCategory;
-    @XPath("//ul[@role='menu']//a[contains(@href, '/gear/bags.html')]")
-    private UIElement bagsSubCategory;
 
-    public void openBagsSubcategory() {
-        gearCategory.hover();
-        bagsSubCategory.click();
+    @Css(".nav-logo")
+    private UIElement logo;
+
+    @Css(".nav__button-secondary")
+    private Button signInButton;
+
+    public void verifyHomePageOpened() {
+        waitForJStoLoad();
+        logo.shouldBe().displayed();
+        signInButton.shouldBe().displayed();
     }
+
+    public void openLoginForm() {
+        signInButton.click();
+    }
+
 
 }
